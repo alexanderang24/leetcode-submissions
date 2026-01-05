@@ -1,8 +1,5 @@
-/**
- * copy and paste Solution class from /problems folder here and call it on the Main class to run it.
- */
-public class Solution {
-    //leetcode submit region begin(Prohibit modification and deletion)
+//leetcode submit region begin(Prohibit modification and deletion)
+class Solution {
     public int[] runningSum(int[] nums) {
         int[] result = new int[nums.length];
         int sum = 0;
@@ -14,6 +11,5 @@ public class Solution {
 
         return result;
     }
-//leetcode submit region end(Prohibit modification and deletion)
-
 }
+//leetcode submit region end(Prohibit modification and deletion)
