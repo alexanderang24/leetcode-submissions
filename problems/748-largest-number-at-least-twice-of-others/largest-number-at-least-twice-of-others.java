@@ -8,7 +8,7 @@ class Solution {
                 maxIdx = i;
             }
         }
-        System.out.println("maxIdx: " + maxIdx);
+        // System.out.println("maxIdx: " + maxIdx);
         
         for (int i = 0; i < nums.length; i++) {
             if (i != maxIdx && nums[i] * 2 > nums[maxIdx]) {
