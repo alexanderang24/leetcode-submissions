@@ -8,9 +8,6 @@ class Solution {
                 return digits;
             }
             digits[i] = 0;
-            if (i == 0) {
-                break;
-            }
         }
         int[] spcDigits = new int[digits.length+1];
         spcDigits[0] = 1;
