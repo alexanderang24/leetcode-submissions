@@ -3,30 +3,30 @@ class Solution {
         int fullLength = mat.length * mat[0].length;
         int[] result = new int[fullLength];
         int i = 0, j = 0;
-        String direction = "upright";
+        boolean goingUpRight = true;
 
         for (int k = 0; k < fullLength; k++) {
-            // System.out.println("k,i,j " + k + " " + i + " " + j + " mat: " + mat[i][j] + " direction: " + direction);
+            // System.out.println("k,i,j " + k + " " + i + " " + j + " mat: " + mat[i][j] + " goingUpRight: " + goingUpRight);
             result[k] = mat[i][j];
             
-            if (direction.equals("upright")) {
+            if (goingUpRight) {
                 if (j == mat[0].length - 1) {
                     i++;
-                    direction = "downleft";
+                    goingUpRight = false;
                 } else if (i == 0) {
                     j++;
-                    direction = "downleft";
+                    goingUpRight = false;
                 } else {
                     i--;
                     j++;
                 }
-            } else { // downleft
+            } else { // going downleft
                 if (i == mat.length - 1) {
                     j++;
-                    direction = "upright";
+                    goingUpRight = true;
                 } else if (j == 0) {
                     i++;
-                    direction = "upright";
+                    goingUpRight = true;
                 } else {
                     i++;
                     j--;
