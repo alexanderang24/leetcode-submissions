@@ -1,58 +1,54 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
-        int m = matrix.length;
-        int n = matrix[0].length;
-        int i = 0, j = 0;
-        String direction = "right";
-        int moveHrz = matrix[0].length - 1; // move left / right
-        int moveVrt = matrix.length - 1; // move up / down
-        int move = moveHrz;
         List<Integer> res = new ArrayList<>();
+        int m = matrix.length; // number of row
+        int n = matrix[0].length; // number of column
+        int i = 0, j = 0; // coordinate, to add value to res
+        String direction = "right";
+        int moveHrz = n - 1; // move horizontal (left/right)
+        int moveVrt = m - 1; // move vertical (up/down)
+        // number of movement, reduce every iteration, change direction if reach zero.
+        int move = moveHrz; // start from horizontal because we are moving to the right
 
         for (int k = 0; k < m * n; k++, move--) {
             res.add(matrix[i][j]);
-            // System.out.println("res: " + res.toString()); 
             if (direction.equals("right")) {
                 if (move > 0) {
-                    j++;
+                    j++; // move right
                 } else { // on move 0
-                    if (i != 0) {
-                        // System.out.println("reduce moveHrz");
-                        moveHrz--;
+                    if (i != 0) { // except for the first corner,
+                        moveHrz--; // reduce horizontal movement
                     }
-                    move = moveVrt;
-                    i++;
+                    move = moveVrt; // change number of move to vertical
+                    i++; // move down
                     direction = "down";
                 }
             } else if (direction.equals("down")) {
                 if (move > 0) {
-                    i++;
+                    i++; // move down
                 } else { // on move 0
-                    j--;
+                    moveVrt--; // reduce vertical movement
+                    move = moveHrz; // change number of move to horizontal
+                    j--; // move left
                     direction = "left";
-                    moveVrt--;
-                    move = moveHrz;
-                    // System.out.println("reduce moveVrt");
                 }
             } else if (direction.equals("left")) {
                 if (move > 0) {
-                    j--;
+                    j--; // move left
                 } else { // on move 0
-                    i--;
+                    moveHrz--; // reduce horizontal movement
+                    move = moveVrt; // change number of move to vertical
+                    i--; // move up
                     direction = "up";
-                    moveHrz--;
-                    move = moveVrt;
-                    // System.out.println("reduce moveHrz");
                 }
             } else if (direction.equals("up")) {
                 if (move > 0) {
-                    i--;
+                    i--; // move up
                 } else { // on move 0
-                    j++;
+                    moveVrt--; // reduce vertical movement
+                    move = moveHrz; // change number of move to horizontal
+                    j++; // move right
                     direction = "right";
-                    moveVrt--;
-                    move = moveHrz;
-                    // System.out.println("reduce moveVrt");
                 }
             }
         }
