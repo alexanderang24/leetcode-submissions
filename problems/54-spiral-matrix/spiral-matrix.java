@@ -11,19 +11,18 @@ class Solution {
 
         for (int k = 0; k < m * n; k++, move--) {
             res.add(matrix[i][j]);
-            System.out.println("res: " + res.toString()); 
+            // System.out.println("res: " + res.toString()); 
             if (direction.equals("right")) {
                 if (move > 0) {
                     j++;
                 } else { // on move 0
                     if (i != 0) {
-                        System.out.println("reduce moveHrz");
+                        // System.out.println("reduce moveHrz");
                         moveHrz--;
                     }
                     move = moveVrt;
                     i++;
                     direction = "down";
-                    System.out.println("move0");
                 }
             } else if (direction.equals("down")) {
                 if (move > 0) {
@@ -33,7 +32,7 @@ class Solution {
                     direction = "left";
                     moveVrt--;
                     move = moveHrz;
-                    System.out.println("reduce moveVrt");
+                    // System.out.println("reduce moveVrt");
                 }
             } else if (direction.equals("left")) {
                 if (move > 0) {
@@ -43,7 +42,7 @@ class Solution {
                     direction = "up";
                     moveHrz--;
                     move = moveVrt;
-                    System.out.println("reduce moveHrz");
+                    // System.out.println("reduce moveHrz");
                 }
             } else if (direction.equals("up")) {
                 if (move > 0) {
@@ -53,7 +52,7 @@ class Solution {
                     direction = "right";
                     moveVrt--;
                     move = moveHrz;
-                    System.out.println("reduce moveVrt");
+                    // System.out.println("reduce moveVrt");
                 }
             }
         }
