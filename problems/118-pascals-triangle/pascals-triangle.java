@@ -8,12 +8,12 @@ class Solution {
             }
 
             List<Integer> row = new ArrayList<>();
-            row.add(1);
+            row.add(1); // add 1 on the leftmost row
             for (int j = 0; j < res.get(i-1).size() - 1; j++) {
-                row.add(res.get(i-1).get(j) + res.get(i-1).get(j+1));
+                row.add(res.get(i-1).get(j) + res.get(i-1).get(j+1)); // sum previous row of j and j+1
             }
-            row.add(1);
-            res.add(row);
+            row.add(1); // add 1 on the rightmost row
+            res.add(row); // add row to result array
         }
         return res;
     }
