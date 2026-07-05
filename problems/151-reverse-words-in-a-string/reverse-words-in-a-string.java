@@ -31,7 +31,7 @@ class Solution {
                 right++;
             }
             int wordEnd = right - 1;
-            System.out.println("i=" + i + " left=" + left + " wordEnd=" + wordEnd);
+            // System.out.println("i=" + i + " left=" + left + " wordEnd=" + wordEnd);
             i = right;
 
             while (left < wordEnd) {
