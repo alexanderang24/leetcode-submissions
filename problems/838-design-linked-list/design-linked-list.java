@@ -1,3 +1,5 @@
+
+
 class MyLinkedList {
     class Node {
         int val;
@@ -61,10 +63,8 @@ class MyLinkedList {
             }
             var added = new Node();
             added.val = val;
-
-            var next = temp.next;
+            added.next = temp.next;
             temp.next = added;
-            added.next = next;
             length++;
         }
     }
