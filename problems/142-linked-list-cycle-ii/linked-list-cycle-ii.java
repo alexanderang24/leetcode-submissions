@@ -18,6 +18,7 @@ public class Solution {
         ListNode slow = head;
         ListNode fast = head;
         boolean cycle = false;
+
         while (fast != null && fast.next != null) {
             fast = fast.next.next;
             slow = slow.next;
@@ -30,18 +31,13 @@ public class Solution {
         if (!cycle) { 
             return null;
         }
-        
-        // ListNode res = head;
-        // System.out.println("res " + res.val);
-        // System.out.println("slow " + slow.val);
-        while (cycle) {
+
+        while (head != slow) {
             if (head == slow) {
                 break;
             }
             slow = slow.next;
             head = head.next;
-            // System.out.println("res " + res.val);
-            // System.out.println("slow " + slow.val);
         }
         return head;
     }
