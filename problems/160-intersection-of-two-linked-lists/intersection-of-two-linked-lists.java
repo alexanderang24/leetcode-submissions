@@ -27,8 +27,8 @@ public class Solution {
             listB = listB.next;
             headB = headB.next;
         }
-        System.out.println("headA " + headA.val);
-        System.out.println("headB " + headB.val);
+        // System.out.println("headA " + headA.val);
+        // System.out.println("headB " + headB.val);
 
         if (headA == headB) {
             return headA;
@@ -38,11 +38,11 @@ public class Solution {
             headA = headA.next;
             headB = headB.next;
             if (headA == headB) {
-                System.out.println("return " + headA);
+                // System.out.println("return " + headA);
                 return headA;
             }
         }
-        System.out.println("return null");
+        // System.out.println("return null");
         return null;
     }
 }
