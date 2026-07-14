@@ -31,18 +31,18 @@ public class Solution {
             return null;
         }
         
-        ListNode res = head;
+        // ListNode res = head;
         // System.out.println("res " + res.val);
         // System.out.println("slow " + slow.val);
-        while (slow.next != null && res.next != null) {
-            if (res == slow) {
+        while (cycle) {
+            if (head == slow) {
                 break;
             }
             slow = slow.next;
-            res = res.next;
+            head = head.next;
             // System.out.println("res " + res.val);
             // System.out.println("slow " + slow.val);
         }
-        return res;
+        return head;
     }
 }
