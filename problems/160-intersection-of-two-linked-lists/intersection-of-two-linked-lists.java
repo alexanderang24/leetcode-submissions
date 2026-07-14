@@ -15,17 +15,8 @@ public class Solution {
         ListNode listB = headB;
 
         while (listA != listB) {
-            if (listA == null) {
-                listA = headB;
-            } else {
-                listA = listA.next;
-            }
-
-            if (listB == null) {
-                listB = headA;
-            } else {
-                listB = listB.next;
-            }
+            listA = listA == null ? headB : listA.next;
+            listB = listB == null ? headA : listB.next;
         }
         return listA;
     }
