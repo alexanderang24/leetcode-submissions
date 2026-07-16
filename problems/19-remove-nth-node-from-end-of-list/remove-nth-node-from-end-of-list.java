@@ -10,34 +10,24 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        // pointer A on head, pointer B with n step ahead of it
-        // if pointer B reach end, delete node on pointer A
-
         ListNode a = head;
         ListNode b = head;
         int counter = 0;
         
+        // set pointer A on head, pointer B with n step ahead of it
         while (b.next != null) {
             if (counter >= n) {
                 a = a.next;
             }
             b = b.next;
             counter++;
-            // System.out.println("counter " + counter);
-            // System.out.println("a now at " + a.val);
-            // System.out.println("b now at " + b.val);
         }
 
+        // in case we need to delete the head
+        // also covers if there's only 1 node in the list (set head to null)
         if (counter < n) {
             head = a.next;
-        } else if (a.next == null) {
-            // System.out.println("a next is null");
-            return null;
-        // } else if (a.next.next == null) {
-            // System.out.println("a next next is null");
-            // a.next = null;
-        } else {
-            // System.out.println("deleting a.next and connecting a to a.next.next");
+        } else { // set next node to next next node (or null if we're deleting the last node in the list)
             a.next = a.next.next;
         }
         return head;
