@@ -33,9 +33,9 @@ class Solution {
         } else if (a.next == null) {
             // System.out.println("a next is null");
             return null;
-        } else if (a.next.next == null) {
+        // } else if (a.next.next == null) {
             // System.out.println("a next next is null");
-            a.next = null;
+            // a.next = null;
         } else {
             // System.out.println("deleting a.next and connecting a to a.next.next");
             a.next = a.next.next;
