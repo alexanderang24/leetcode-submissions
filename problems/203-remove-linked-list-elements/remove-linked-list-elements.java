@@ -14,7 +14,7 @@ class Solution {
         ListNode temp = prev;
 
         while (temp != null) {
-            System.out.println("temp: " + temp.val);
+            // System.out.println("temp: " + temp.val);
 
             while (temp.next != null && temp.next.val == val) {
                 temp.next = temp.next.next;
