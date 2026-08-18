@@ -18,10 +18,10 @@ class Solution {
         ListNode evenHead = even;
 
         while (odd.next != null && even.next != null) {
-            // System.out.println("odd connecting " + odd.val + " to " + odd.next.next.val);
+            // System.out.println("[odd] connecting " + odd.val + " to " + even.next.val);
             odd.next = even.next;
             odd = odd.next;
-            // System.out.println("even connecting " + even.val + " to " + even.next.next.val);
+            // System.out.println("[even] connecting " + even.val + " to " + odd.next.val);
             even.next = odd.next;
             even = even.next;
         }
