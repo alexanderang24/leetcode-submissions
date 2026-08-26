@@ -21,17 +21,17 @@ class Solution {
         ListNode merged = new ListNode();
         ListNode head;
         if (list1.val < list2.val) {
-            System.out.println("use1");
+            // System.out.println("use1");
             merged = list1;
             list1 = list1.next;
             head = merged;
         } else if (list2.val < list1.val) {
-            System.out.println("use2");
+            // System.out.println("use2");
             merged = list2;
             list2 = list2.next;
             head = merged;
         } else {
-            System.out.println("same");
+            // System.out.println("same");
             merged = list1;
             list1 = list1.next;
             head = merged;
@@ -43,19 +43,19 @@ class Solution {
         }
 
         while (list1 != null && list2 != null) {
-            System.out.println("processing 1 | 2: " + list1.val + " | " + list2.val);
+            // System.out.println("processing 1 | 2: " + list1.val + " | " + list2.val);
             if (list1.val < list2.val) {
-                System.out.println("use1");
+                // System.out.println("use1");
                 merged.next = list1;
                 list1 = list1.next;
                 merged = merged.next;
             } else if (list2.val < list1.val) {
-                System.out.println("use2");
+                // System.out.println("use2");
                 merged.next = list2;
                 list2 = list2.next;
                 merged = merged.next;
             } else {
-                System.out.println("same");
+                // System.out.println("same");
                 merged.next = list1;
                 list1 = list1.next;
                 merged = merged.next;
@@ -67,10 +67,10 @@ class Solution {
         }
 
         if (list1 != null) {
-            System.out.println("add remaining 1");
+            // System.out.println("add remaining 1");
             merged.next = list1;
         } else if (list2 != null) {
-            System.out.println("add remaining 2");
+            // System.out.println("add remaining 2");
             merged.next = list2;
         }
         return head;
