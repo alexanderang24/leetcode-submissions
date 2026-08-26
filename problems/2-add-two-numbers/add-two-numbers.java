@@ -31,7 +31,6 @@ class Solution {
             }
 
             extra = sum / 10;
-            // System.out.println("sum add " + sum);
             l.next = new ListNode(sum % 10);
             l = l.next;
         }
