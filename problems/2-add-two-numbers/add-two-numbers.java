@@ -30,18 +30,11 @@ class Solution {
                 sum = extra;
             }
 
-            if (sum >= 10) {
-                extra = sum / 10;
-                sum = sum % 10;
-            } else {
-                extra = 0;
-            }
-
+            extra = sum / 10;
             // System.out.println("sum add " + sum);
-            l.next = new ListNode(sum);
+            l.next = new ListNode(sum % 10);
             l = l.next;
         }
-
         return head.next;
     }
 }
