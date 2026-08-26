@@ -1,9 +1,8 @@
-
-
 class MyLinkedList {
     class Node {
         int val;
         Node next;
+        Node prev;
     }
 
     public Node head;
@@ -30,7 +29,13 @@ class MyLinkedList {
     public void addAtHead(int val) {
         var temp = new Node();
         temp.val = val;
+
         temp.next = head;
+
+        if (head != null) {
+            head.prev = temp;
+        }
+
         head = temp;
         length++;
     }
@@ -45,6 +50,8 @@ class MyLinkedList {
             }
             var tail = new Node();
             tail.val = val;
+            tail.prev = temp;
+
             temp.next = tail;
             length++;
         }
@@ -64,7 +71,12 @@ class MyLinkedList {
             var added = new Node();
             added.val = val;
             added.next = temp.next;
+            added.prev = temp;
             temp.next = added;
+
+            if (added.next != null) {
+                added.next.prev = added;
+            }
             length++;
         }
     }
@@ -74,6 +86,10 @@ class MyLinkedList {
             return;
         } else if (index == 0) {
             head = head.next;
+
+            if (head != null) {
+                head.prev = null;
+            }
             length--;
         } else {
             var temp = head;
@@ -82,6 +98,10 @@ class MyLinkedList {
                 index--;
             }
             temp.next = temp.next.next;
+
+            if (temp.next != null) {
+                temp.next.prev = temp;
+            }
             length--;
         }
     }
