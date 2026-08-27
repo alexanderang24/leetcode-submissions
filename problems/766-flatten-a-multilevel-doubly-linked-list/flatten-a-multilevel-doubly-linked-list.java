@@ -10,28 +10,35 @@ class Node {
 
 class Solution {
     public Node flatten(Node head) {
-        Node dummyFlat = new Node();
-        Node tail = traverse(head, dummyFlat);
-        Node result = dummyFlat.next;
-        if (result != null) result.prev = null; // head.prev must be null
+        if (head == null) return null;
+        Node result = head;
+        result.prev = null;
+        traverse(head);
         return result;
     }
+    
+    private Node traverse(Node curr) {
+        Node last = curr;
 
-    private Node traverse(Node curr, Node flat) {
         while (curr != null) {
-            // System.out.println("add to flat: " + curr.val);
-            Node temp = new Node();
-            temp.val = curr.val;
-            temp.prev = flat;
-            flat.next = temp;
-            flat = flat.next;
-
+            Node next = curr.next;
             if (curr.child != null) {
-                // System.out.println("have child, going in");
-                flat = traverse(curr.child, flat);
+                Node childHead = curr.child;
+                Node childTail = traverse(childHead);
+
+                curr.next = childHead;
+                childHead.prev = curr;
+
+                childTail.next = next;
+                if (next != null) next.prev = childTail;
+
+                curr.child = null;
+                last = childTail;
+            } else {
+                last = curr;
             }
-            curr = curr.next;
+            curr = next;
         }
-        return flat;
+        return last;
     }
 }
