@@ -19,7 +19,7 @@ class Solution {
 
     private Node traverse(Node curr, Node flat) {
         while (curr != null) {
-            System.out.println("add to flat: " + curr.val);
+            // System.out.println("add to flat: " + curr.val);
             Node temp = new Node();
             temp.val = curr.val;
             temp.prev = flat;
@@ -27,7 +27,7 @@ class Solution {
             flat = flat.next;
 
             if (curr.child != null) {
-                System.out.println("have child, going in");
+                // System.out.println("have child, going in");
                 flat = traverse(curr.child, flat);
             }
             curr = curr.next;
