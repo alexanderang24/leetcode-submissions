@@ -7,7 +7,6 @@ class Solution {
             reversed = (reversed * 10) + (temp % 10);
             temp = temp / 10;
         }
-        System.out.println(reversed);
         return reversed == x;
     }
 }
