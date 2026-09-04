@@ -5,10 +5,10 @@ class Solution {
             if (map.get(s.charAt(i)) != null) {
                 int val = map.get(s.charAt(i));
                 map.put(s.charAt(i), ++val);
-                System.out.println("+char: " + s.charAt(i) + " val: " + val);
+                // System.out.println("+char: " + s.charAt(i) + " val: " + val);
             } else {
                 map.put(s.charAt(i), 1);
-                System.out.println("+char: " + s.charAt(i) + " val: " + 1);
+                // System.out.println("+char: " + s.charAt(i) + " val: " + 1);
             }
         }
 
@@ -16,7 +16,7 @@ class Solution {
             if (map.get(t.charAt(i)) != null && map.get(t.charAt(i)) > 0) {
                 int val = map.get(t.charAt(i));
                 map.put(t.charAt(i), --val);
-                System.out.println("-char: " + t.charAt(i) + " val: " + val);
+                // System.out.println("-char: " + t.charAt(i) + " val: " + val);
             } else {
                 return false;
             }
@@ -24,7 +24,7 @@ class Solution {
 
         for (int i = 0; i < map.size(); i++) {
             if (map.get(s.charAt(i)) != 0) {
-                System.out.println("not null: " + s.charAt(i) + " val: " + map.get(s.charAt(i)));
+                // System.out.println("not null: " + s.charAt(i) + " val: " + map.get(s.charAt(i)));
                 return false;
             }
         }
