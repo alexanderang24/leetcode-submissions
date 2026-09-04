@@ -9,10 +9,10 @@ class Solution {
 
         for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
-            if (map.containsKey(c) && map.get(c) > 0) {
-                map.put(c, map.get(c) - 1);
-            } else {
+            if (!map.containsKey(c) || map.get(c) == 0) {
                 return false;
+            } else {
+                map.put(c, map.get(c) - 1);
             }
         }
         return true;
