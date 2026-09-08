@@ -8,10 +8,19 @@ class Solution {
         Set<Integer> set2 = new HashSet<>();
         for (Integer num2 : nums2) {
             if (set1.contains(num2)) {
+                set1.remove(num2);
                 set2.add(num2);
             }
         }
         
-        return set2.stream().mapToInt(Integer::intValue).toArray();
+        // return set2.stream().mapToInt(Integer::intValue).toArray();
+
+        int[] res = new int[set2.size()];
+        int i = 0;
+        for (int num : set2) {
+            res[i] = num;
+            i++;
+        }
+        return res;
     }
 }
