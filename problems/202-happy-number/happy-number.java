@@ -9,11 +9,8 @@ class Solution {
                 temp += calc * calc;
                 n /= 10;
             }
-            if (temp == 1) {
-                return true;
-            } else {
-                n = temp;
-            }
+            if (temp == 1) return true;
+            n = temp;
         }
         return false;
     }
