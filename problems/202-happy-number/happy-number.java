@@ -1,23 +1,19 @@
 class Solution {
     public boolean isHappy(int n) {        
         Set<Integer> set = new HashSet<>();
-        while (n != 1) {
-            // System.out.println("n: " + n);
-            if (set.contains(n)) {
-                // System.out.println("set contains n");
-                return false;
-            } else {
-                set.add(n);
+        while (!set.contains(n)) {
+            set.add(n);
+            int temp = 0;
+            while(n > 0) {
+                int calc = n % 10;
+                temp = temp + (calc * calc);
+                n = n / 10;
             }
-            String s = String.valueOf(n);
-            Integer calc = 0;
-            for (int i = 0; i < s.length(); i++) {
-                double digit = Character.digit(s.charAt(i), 10);
-                // System.out.println("digit " + digit);
-                calc += (int) Math.pow(digit, 2);
+            n = temp;
+            if (n == 1) {
+                return true;
             }
-            n = calc;
         }
-        return true;
+        return false;
     }
 }
