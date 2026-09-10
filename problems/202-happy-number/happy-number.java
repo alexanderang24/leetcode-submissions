@@ -6,12 +6,13 @@ class Solution {
             int temp = 0;
             while(n > 0) {
                 int calc = n % 10;
-                temp = temp + (calc * calc);
-                n = n / 10;
+                temp += calc * calc;
+                n /= 10;
             }
-            n = temp;
-            if (n == 1) {
+            if (temp == 1) {
                 return true;
+            } else {
+                n = temp;
             }
         }
         return false;
