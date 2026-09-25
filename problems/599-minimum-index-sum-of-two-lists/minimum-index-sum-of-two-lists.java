@@ -8,7 +8,7 @@ class Solution {
 
         List<String> list = new ArrayList<>();
         int indexSum = Integer.MAX_VALUE;
-        for (int i = 0; i < list2.length; i++) {
+        for (int i = 0; i < list2.length && i <= indexSum; i++) {
             String s = list2[i];
             if (map.containsKey(s)) {
                 // System.out.println("map contains " + s);
@@ -19,7 +19,7 @@ class Solution {
                     // System.out.println("added to list: " + s);
                 } else if (temp < indexSum) {
                     indexSum = temp;
-                    list = new ArrayList<>();
+                    list.clear();
                     list.add(s);
                     // System.out.println("replaced to list: " + s);
                 }
