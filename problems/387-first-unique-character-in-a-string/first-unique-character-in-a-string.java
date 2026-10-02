@@ -2,20 +2,13 @@ class Solution {
     public int firstUniqChar(String s) {
         Map<Character, Integer> map = new HashMap<>();
         for (Character key : s.toCharArray()) {
-            if (map.containsKey(key)) {
-                int value = map.get(key)+1;
-                // System.out.println("update key " + key + " to " + value);
-                map.put(key, value);
-            } else {
-                // System.out.println("new key " + key);
-                map.put(key, 1);
-            }
+            map.put(key, map.getOrDefault(key, 0) + 1);
         }
 
-        for (Character key : s.toCharArray()) {
+        for (int i = 0; i < s.length(); i++) {
             // System.out.println("Key: " + key);
-            if (map.get(key) == 1) {
-                return s.indexOf(key);
+            if (map.get(s.charAt(i)) == 1) {
+                return i;
             }
         }
         return -1;
