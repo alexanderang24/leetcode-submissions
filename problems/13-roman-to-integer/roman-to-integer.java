@@ -3,46 +3,26 @@ class Solution {
         int res = 0;
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if (c == 'I') {
-                if (i < s.length() - 1 && s.charAt(i+1) == 'V') {
-                    res += 4;
-                    i++;
-                } else if (i < s.length() - 1 && s.charAt(i+1) == 'X') {
-                    res += 9;
-                    i++;
-                } else {
-                    res += 1;
-                }
-            } else if (c == 'X') {
-                if (i < s.length() - 1 && s.charAt(i+1) == 'L') {
-                    res += 40;
-                    i++;
-                } else if (i < s.length() - 1 && s.charAt(i+1) == 'C') {
-                    res += 90;
-                    i++;
-                } else {
-                    res += 10;
-                }
-            } else if (c == 'C') {
-                if (i < s.length() - 1 && s.charAt(i+1) == 'D') {
-                    res+= 400;
-                    i++;
-                } else if (i < s.length() - 1 && s.charAt(i+1) == 'M') {
-                    res += 900;
-                    i++;
-                } else {
-                    res += 100;
-                }
-            } else if (c == 'V') {
-                res += 5;
-            } else if (c == 'L') {
-                res += 50;
-            } else if (c == 'D') {
-                res += 500;
-            } else if (c == 'M') {
-                res += 1000;
+            int num = getNum(c);
+            if (i < s.length() - 1 && num < getNum(s.charAt(i+1))) {
+                res -= num;
+            } else {
+                res += num;
             }
         }
         return res;
+    }
+
+    private int getNum(char c) {
+        switch (c) {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+            default: return 0;
+        }
     }
 }
