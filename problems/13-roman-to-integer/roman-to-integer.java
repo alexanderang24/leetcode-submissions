@@ -2,8 +2,7 @@ class Solution {
     public int romanToInt(String s) {
         int res = 0;
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            int num = getNum(c);
+            int num = getNum(s.charAt(i));
             if (i < s.length() - 1 && num < getNum(s.charAt(i+1))) {
                 res -= num;
             } else {
