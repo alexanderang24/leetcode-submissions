@@ -6,23 +6,23 @@ class Solution {
         }
 
         for (int left = 0, right = s.length() - 1; left <= right;) {
-            System.out.println("comparing " + s.charAt(left) + " and " + s.charAt(right));
+            // System.out.println("comparing " + s.charAt(left) + " and " + s.charAt(right));
             if (!isAlphanumeric(s.charAt(left))) {
-                System.out.println("left not alpha");
+                // System.out.println("left not alpha");
                 left++;
                 continue;
             }
             if (!isAlphanumeric(s.charAt(right))) {
-                System.out.println("right not alpha");
+                // System.out.println("right not alpha");
                 right--;
                 continue;
             }
 
             if (s.charAt(left) != s.charAt(right)) {
-                System.out.println("not the same");
+                // System.out.println("not the same");
                 return false;
             }
-            System.out.println("same");
+            // System.out.println("same");
             left++;
             right--;
         }
