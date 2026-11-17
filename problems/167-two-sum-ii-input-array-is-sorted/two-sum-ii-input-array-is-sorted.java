@@ -4,9 +4,10 @@ class Solution {
         int r = numbers.length - 1;
 
         while (l < r) {
-            if (numbers[l] + numbers[r] > target) {
+            int sum = numbers[l] + numbers[r];
+            if (sum > target) {
                 r--;
-            } else if (numbers[l] + numbers[r] < target) {
+            } else if (sum < target) {
                 l++;
             } else {
                 return new int[]{l+1, r+1};
