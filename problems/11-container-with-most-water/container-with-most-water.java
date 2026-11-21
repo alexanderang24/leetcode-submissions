@@ -3,20 +3,16 @@ class Solution {
         int left = 0;
         int right = height.length - 1;
         int max = 0;
+        int minHeight = 0;
+        int area = 0;
 
         while (left < right) {
-            // System.out.println("left: " + left + " right: " + right);
-            int area = Math.min(height[left], height[right]) * (right - left);
-            // System.out.println("area " + area);;
+            minHeight = Math.min(height[left], height[right]);
+            area = minHeight * (right - left);
             max = Math.max(max, area);
 
-            if (height[left] < height[right]) {
-                // System.out.println("move left");
-                left++;
-            } else {
-                // System.out.println("move right");
-                right--;
-            }
+            while (left < right && height[left] <= minHeight) left++;
+            while (left < right && height[right] <= minHeight) right--;
         }
         return max;
     }
