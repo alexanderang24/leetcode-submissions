@@ -8,10 +8,7 @@ class Solution {
             // System.out.println("left: " + left + " right: " + right);
             int area = Math.min(height[left], height[right]) * (right - left);
             // System.out.println("area " + area);;
-            if (area > max) {
-                // System.out.println("update max");
-                max = area;
-            }
+            max = Math.max(max, area);
 
             if (height[left] < height[right]) {
                 // System.out.println("move left");
