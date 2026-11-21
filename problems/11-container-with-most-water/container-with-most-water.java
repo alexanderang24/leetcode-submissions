@@ -3,12 +3,12 @@ class Solution {
         int left = 0;
         int right = height.length - 1;
         int max = 0;
-        int minHeight = 0;
-        int area = 0;
 
         while (left < right) {
-            minHeight = Math.min(height[left], height[right]);
-            area = minHeight * (right - left);
+            // System.out.println("left: " + left + " right: " + right);
+            int minHeight = Math.min(height[left], height[right]);
+            int area = minHeight * (right - left);
+            // System.out.println("area " + area);;
             max = Math.max(max, area);
 
             while (left < right && height[left] <= minHeight) left++;
